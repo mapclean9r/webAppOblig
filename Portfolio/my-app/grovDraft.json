@@ -1,0 +1,14 @@
+[
+    {
+    "id": "1",
+      "prosjektnavn": "Facebook copy",
+      "beskrivelse": "En kopi av facebook",
+      "teknologierbrukt": ["HTML","CSS","JavaScript","TypeScript","React"]
+    },
+    {
+    "id": "2",
+    "prosjektnavn": "Instagram copy",
+    "beskrivelse": "En kopi av Instagram",
+    "teknologierbrukt": ["HTML","CSS","JavaScript","TypeScript","React"]
+      }
+]

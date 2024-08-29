@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio 1</title>
+  </head>
+  <body>
+
+    <nav>
+      <header>
+        <a href="#">Home</a>
+      </header>
+    </nav>
+
+    <main>
+
+      <section id="createPortfolio">
+        <h1>Create portfolio</h1>
+
+        <form action="">
+          <label for="projName">Project name:</label><br>
+          <input type="text" id="projName" name="NAME"><br>
+          
+          <label for="projDesc">Project desciption:</label><br>
+          <input type="text" id="projDesc" name="DESC">
+
+          <h3>Technology used:</h3>
+          <input type="checkbox" id="html" name="sHTML" value="HTML">
+          <label for="html">HTML</label><br>
+
+          <input type="checkbox" id="css" name="sCSS" value="CSS">
+          <label for="css">CSS</label><br>
+
+          <input type="checkbox" id="javascript" name="sJAVASCRIPT" value="JavaScript">
+          <label for="javascript">JavaScript</label><br>
+
+          <input type="checkbox" id="typescript" name="sTYPESCRIPT" value="TypeScript">
+          <label for="typescript">TypeScript</label><br>
+
+          <input type="checkbox" id="react" name="sREACT" value="JavaScript">
+          <label for="react">React</label><br><br>
+
+          <input type="submit" value="Submit">
+        </form>
+
+      </section>
+
+      <section id="outP">
+
+        <article id="cardPortfolio">
+          <h3>Title</h3>
+          <p>description</p>
+          <p>tech used</p>
+        </article>
+
+        <article id="cardPortfolio">
+          <h3>Title</h3>
+          <p>description</p>
+          <p>tech used</p>
+        </article>
+
+        <article id="cardPortfolio">
+          <h3>Title</h3>
+          <p>description</p>
+          <p>tech used</p>
+        </article>
+
+      </section>
+    </main>
+
+    <footer>
+      <ul>
+        <li>
+          <p>name</p>
+        </li>
+        <li>
+          <p>mail</p>
+        </li>
+      </ul>
+    </footer>
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
