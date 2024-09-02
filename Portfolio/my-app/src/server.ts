@@ -10,37 +10,34 @@ app.use("/*", cors());
 
 app.use("/static/*", serveStatic({ root: "./" }));
 
-// Setter typen til habits til å være en array av Habit
 const projects: Project[] = [
     {
         "id": "1",
         "title": "Facebook copy",
         "beskrivelse": "En kopi av facebook",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMleaymP99uYkw995Q8Vxl16FRedxsXkh-QA&s",
         "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
         },
         {
         "id": "2",
         "title": "Instagram copy",
         "beskrivelse": "En kopi av Instagram",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK-ml5Hxr8K5z4-xCTz9T7fUhoUoZtfaKcIw&s",
         "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
-    }
+    },
 ];
 
 app.post("/add", async (c) => {
   const newProject = await c.req.json();
-  // Validerer at dataen vi mottar er en gyldig Habit
   const proj = ProjectSchema.parse(newProject);
-  // Sjekker om habit er en gyldig Habit, og returnerer en feilmelding hvis ikke
   if (!proj) return c.json({ error: "Invalid habit" }, { status: 400 });
   console.log(proj);
   projects.push(proj);
 
-  // Returnerer en liste med alle habits. Bruker generisk type for å fortelle at vi returnerer en array av Habit
   return c.json<Project[]>(projects, { status: 201 });
 });
 
 app.get("/", (c) => {
-  // Returnerer en liste med alle habits. Bruker generisk type for å fortelle at vi returnerer en array av Habit
   return c.json<Project[]>(projects);
 });
 

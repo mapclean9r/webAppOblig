@@ -21,10 +21,13 @@ function updateHabitsList() {
     const h3Item = document.createElement("h3");
     const pItem = document.createElement("p");
     const p2Item = document.createElement("p");
+    const imgItem = document.createElement("img");
     h3Item.innerHTML = i.title
     pItem.innerHTML = i.beskrivelse
     p2Item.innerHTML = i.teknologibruk.join(",");
+    imgItem.src = i.image
     listItem.appendChild(h3Item)
+    listItem.appendChild(imgItem)
     listItem.appendChild(pItem)
     listItem.appendChild(p2Item)
     
@@ -38,21 +41,20 @@ function loadFromApi() {
     .then((response) => response.json())
     .then((data: unknown) => {
       try {
-        // Forsøker å parse og validere dataene med Zod-skjemaet
         const validatedHabits = ProjectArraySchema.parse(data);
 
-        allProjects.push(...validatedHabits); // Legger til validerte vaner i den interne listen
-        updateHabitsList(); // Oppdaterer visningen på nettsiden
+        allProjects.push(...validatedHabits);
+        updateHabitsList();
       } catch (error) {
         if (error instanceof z.ZodError) {
-          console.error("Ugyldig data mottatt fra serveren:", error);
+          console.error("null data received:", error);
         } else {
-          console.error("Uventet feil ved validering av data:", error);
+          console.error("unknown error:", error);
         }
       }
     })
     .catch((error: Error) => {
-      console.error("Feil ved henting av data fra serveren:", error);
+      console.error("Error getting:", error);
     });
 }
 

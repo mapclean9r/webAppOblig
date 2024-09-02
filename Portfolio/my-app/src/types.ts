@@ -5,6 +5,7 @@ export const ProjectSchema = z.object({
   id: z.string(),
   title: z.string(),
   beskrivelse: z.string(),
+  image: z.string(),
   teknologibruk: z.string().array(),
 });
 

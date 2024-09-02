@@ -16,7 +16,6 @@ nav{
   padding: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
-  position:sticky;
   top: 0px;
   justify-content: center;
   header{
@@ -34,22 +33,37 @@ nav{
   gap: 2rem;
   margin: 3rem;
   padding: 1rem;
+  border: 1px solid wheat;
 }
 
 #outP {
   display: flex;
   justify-content: space-around;
   margin: 3rem;
+  flex-wrap: wrap;
+  gap: 100px;  
 
   #cardPortfolio{
     background-color: #2f4f4f;
     border-radius: 0.7rem;
     display: inline-block;
+    border: 2px solid wheat;
+    flex: 1 1 calc(25%); 
+    max-width: 300px;
+
     h3{
       padding: 1rem;
+      text-align: center;
     }
     p{
-      padding: 1rem;
+      padding: 0.1rem;
+      text-align: center;
+    }
+    img{
+      display: flex;
+      max-width: 200px;
+      text-align: center;
+      margin: auto;
     }
   }
 }
@@ -57,7 +71,7 @@ nav{
 footer{
   text-align: center;
   background-color: #0095b6;
-  color: black;
+  color: white;
   margin: 3rem;
 
   ul{
