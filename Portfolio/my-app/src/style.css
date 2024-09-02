@@ -5,14 +5,21 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--bc);
+
+  --bc:#004a5b;
+
+  --blueish: white;
+  --bcContent: 	#005f6a;
 
 }
+/* #0095b6 */
+
 
 
 
 nav{
-  background-color: #0095b6;
+  background-color: var(--blueish);
   padding: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
@@ -22,13 +29,14 @@ nav{
     padding: 0.8rem;
     a{
       text-decoration: none;
-      color: white;
+      color: var(--bc);
+      font-size: 1.5rem;
     }
   }
 }
 
 #createPortfolio {
-  background-color: #2f4f4f;
+  background-color: var(--bcContent);
   display: inline-block;
   gap: 2rem;
   margin: 3rem;
@@ -44,7 +52,7 @@ nav{
   gap: 100px;  
 
   #cardPortfolio{
-    background-color: #2f4f4f;
+    background-color: var(--bcContent);
     border-radius: 0.7rem;
     display: inline-block;
     border: 2px solid wheat;
@@ -57,7 +65,8 @@ nav{
     }
     p{
       padding: 0.1rem;
-      text-align: center;
+      padding-left: 1rem;
+      text-align: left;
     }
     img{
       display: flex;
@@ -70,8 +79,8 @@ nav{
 
 footer{
   text-align: center;
-  background-color: #0095b6;
-  color: white;
+  background-color: var(--blueish);
+  color: var(--bc);
   margin: 3rem;
 
   ul{

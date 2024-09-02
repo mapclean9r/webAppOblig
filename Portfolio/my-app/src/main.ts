@@ -26,6 +26,7 @@ function updateHabitsList() {
     pItem.innerHTML = i.beskrivelse
     p2Item.innerHTML = i.teknologibruk.join(",");
     imgItem.src = i.image
+    imgItem.alt = "img"
     listItem.appendChild(h3Item)
     listItem.appendChild(imgItem)
     listItem.appendChild(pItem)

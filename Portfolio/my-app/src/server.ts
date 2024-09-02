@@ -25,6 +25,41 @@ const projects: Project[] = [
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK-ml5Hxr8K5z4-xCTz9T7fUhoUoZtfaKcIw&s",
         "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
     },
+    {
+      "id": "1",
+      "title": "Facebook copy",
+      "beskrivelse": "En kopi av facebook",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMleaymP99uYkw995Q8Vxl16FRedxsXkh-QA&s  ",
+      "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
+      },
+      {
+        "id": "1",
+        "title": "Facebook copy",
+        "beskrivelse": "En kopi av facebook",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMlHvOWVKfzAb8wOGqV6Z6YwaElHNI3Xo3w&s",
+        "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
+        },
+      {
+        "id": "1",
+        "title": "Facebook copy",
+        "beskrivelse": "En kopi av facebook",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMlHvOWVKfzAb8wOGqV6Z6YwaElHNI3Xo3w&s",
+        "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
+        },
+      {
+        "id": "1",
+        "title": "Facebook copy",
+        "beskrivelse": "En kopi av facebook",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMlHvOWVKfzAb8wOGqV6Z6YwaElHNI3Xo3w&s",
+        "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
+        },
+      {
+        "id": "1",
+        "title": "Facebook copy",
+        "beskrivelse": "En kopi av facebook",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMlHvOWVKfzAb8wOGqV6Z6YwaElHNI3Xo3w&s",
+        "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
+        }
 ];
 
 app.post("/add", async (c) => {
