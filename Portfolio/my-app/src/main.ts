@@ -20,7 +20,7 @@ form.addEventListener("submit", async (event: SubmitEvent) => {
   .map((element) => (element as HTMLInputElement).value);
   
   const newProject = {
-    id: "3",
+    id: crypto.randomUUID(),
     title: (
       (event.target as HTMLFormElement).elements.namedItem("projName") as HTMLInputElement)?.value,
     beskrivelse: (
@@ -86,9 +86,9 @@ function loadFromApi() {
     .then((response) => response.json())
     .then((data: unknown) => {
       try {
-        const validatedHabits = ProjectArraySchema.parse(data);
+        const validatedProjects = ProjectArraySchema.parse(data);
 
-        allProjects.push(...validatedHabits);
+        allProjects.push(...validatedProjects);
         updateProjectList();
       } catch (error) {
         if (error instanceof z.ZodError) {

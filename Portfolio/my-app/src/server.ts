@@ -12,14 +12,14 @@ app.use("/static/*", serveStatic({ root: "./" }));
 
 const projects: Project[] = [
     {
-        "id": "1",
+        "id": crypto.randomUUID(),
         "title": "Facebook copy",
         "beskrivelse": "En kopi av facebook",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMleaymP99uYkw995Q8Vxl16FRedxsXkh-QA&s",
         "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
         },
         {
-        "id": "2",
+        "id": crypto.randomUUID(),
         "title": "Instagram copy",
         "beskrivelse": "En kopi av Instagram",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK-ml5Hxr8K5z4-xCTz9T7fUhoUoZtfaKcIw&s",
