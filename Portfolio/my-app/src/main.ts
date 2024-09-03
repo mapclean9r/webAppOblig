@@ -8,8 +8,52 @@ import { z } from "zod";
 const projectList = document.getElementById("outP") as HTMLUListElement;
 let allProjects: Project[] = [];
 
+const form = document.getElementById("formIN") as HTMLFormElement;
+const projects: Project[] = [];
 
-function updateHabitsList() {
+form.addEventListener("submit", async (event: SubmitEvent) => {
+  event.preventDefault();
+
+
+  const teknologibruk: string[] = Array.from(form.elements)
+  .filter((element) => (element as HTMLInputElement).type === "checkbox" && (element as HTMLInputElement).checked)
+  .map((element) => (element as HTMLInputElement).value);
+  
+  const newProject = {
+    id: "3",
+    title: (
+      (event.target as HTMLFormElement).elements.namedItem("projName") as HTMLInputElement)?.value,
+    beskrivelse: (
+      (event.target as HTMLFormElement).elements.namedItem("projDesc") as HTMLInputElement)?.value,
+    image: (
+        (event.target as HTMLFormElement).elements.namedItem("projPic") as HTMLInputElement)?.value,
+    teknologibruk,
+  }
+  projects.push(newProject);
+  updateProjectList();
+
+  try {
+    const response = await fetch("http://localhost:3999/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProject),
+    });
+
+    if (response.status === 201) {
+      console.log("Vane lagret på serveren");
+    } else {
+      console.error("Feil ved lagring av vane på serveren");
+    }
+  } catch (error) {
+    console.error("Feil ved sending av data til serveren:", error);
+  }
+});
+
+
+
+function updateProjectList() {
   console.log(allProjects);
   if (!projectList) return;
   projectList.innerHTML = "";
@@ -45,7 +89,7 @@ function loadFromApi() {
         const validatedHabits = ProjectArraySchema.parse(data);
 
         allProjects.push(...validatedHabits);
-        updateHabitsList();
+        updateProjectList();
       } catch (error) {
         if (error instanceof z.ZodError) {
           console.error("null data received:", error);
