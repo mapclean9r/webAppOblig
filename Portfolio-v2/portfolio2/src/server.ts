@@ -31,10 +31,7 @@ const projects: ProjectSchema[] = [
 app.post("/add", async (c) => {
   const proj = await c.req.json();
 
-  if (!proj) return c.json({ error: "Invalid proj" }, { status: 400 });
-  console.log(proj);
-  projects.push(proj);
-
+  proj.push(proj)
   return c.json<ProjectSchema[]>(projects, { status: 201 });
 });
 
