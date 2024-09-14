@@ -9,7 +9,7 @@ const ProjectCard = ({projects}:{projects: ProjectSchema[]}) => {
     <h3>{project.title}</h3>
     <img src={project.image} alt="img"/>
     <p>{project.beskrivelse}</p>
-    <p>{project.teknologibruk.join(",")}</p>
+    <p>{project.teknologibruk}</p>
   </article>))}
   
   </section>

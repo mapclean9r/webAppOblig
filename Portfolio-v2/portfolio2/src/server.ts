@@ -23,20 +23,19 @@ const projects: ProjectSchema[] = [
         "title": "Instagram copy",
         "beskrivelse": "En kopi av Instagram",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK-ml5Hxr8K5z4-xCTz9T7fUhoUoZtfaKcIw&s",
-        "teknologibruk": ["HTML","CSS","JavaScript","TypeScript","React"]
+        "teknologibruk": ["HTML","CSS","JavaScript"]
     },
   ];
 
 
-app.post("/add", async (c) => {
-  const proj = await c.req.json();
-
-  proj.push(proj)
-  return c.json<ProjectSchema[]>(projects, { status: 201 });
-});
-
 app.get("/", (c) => {
   return c.json<ProjectSchema[]>(projects);
+});
+
+app.post("/add", async (c) => {
+  const proj = await c.req.json();
+  projects.push(proj)
+  return c.json<ProjectSchema[]>(projects, { status: 201 });
 });
 
 const port = 3999;
