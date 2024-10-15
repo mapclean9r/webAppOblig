@@ -1,0 +1,93 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: var(--bc);
+  
+    --bc:#004a5b;
+  
+    --blueish: white;
+    --bcContent: 	#005f6a;
+  
+  }
+  /* #0095b6 */
+  
+  
+  
+  
+  nav{
+    background-color: var(--blueish);
+    padding: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    top: 0px;
+    justify-content: center;
+    header{
+      padding: 0.8rem;
+      a{
+        text-decoration: none;
+        color: var(--bc);
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+  #createPortfolio {
+    background-color: var(--bcContent);
+    display: inline-block;
+    gap: 2rem;
+    margin: 3rem;
+    padding: 1rem;
+    border: 1px solid wheat;
+  }
+  
+  #outP {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem;
+    flex-wrap: wrap;
+    gap: 100px;  
+  
+    #cardPortfolio{
+      background-color: var(--bcContent);
+      border-radius: 0.7rem;
+      display: inline-block;
+      border: 2px solid wheat;
+      flex: 1 1 calc(25%); 
+      max-width: 300px;
+  
+      h3{
+        padding: 1rem;
+        text-align: center;
+      }
+      p{
+        padding: 0.1rem;
+        padding-left: 1rem;
+        text-align: left;
+      }
+      img{
+        display: flex;
+        max-width: 200px;
+        text-align: center;
+        margin: auto;
+      }
+    }
+  }
+  
+  footer{
+    text-align: center;
+    background-color: var(--blueish);
+    color: var(--bc);
+    margin: 3rem;
+  
+    ul{
+      li{
+        display: inline-block;
+        margin: 20px;
+      }
+    }
+  }
+  
