@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { ProjectSchema } from "../types";
+import { type CreateProject } from "../types";
+import { endPoint } from "../config";
 
 export default function CreateProject() {
 
   const [projform, setProjFormData] = useState({
-    id: crypto.randomUUID(),
     projName: "",
     projDesc: "",
     projPic: "",
     teknologibruk: [] as string[],
   });
 
+  const server = endPoint;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -37,9 +38,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   console.log(projform);
 
-  const newProject: ProjectSchema = 
+  const newProject: CreateProject = 
     {
-        id: crypto.randomUUID(),
         title: projform.projName,
         beskrivelse: projform.projDesc,
         image: projform.projPic,
@@ -50,7 +50,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   console.log(newProject)
 
   try {
-    const response = await fetch("http://localhost:3999/add", {
+    const response = await fetch(server.serverAdd, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
