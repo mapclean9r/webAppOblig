@@ -4,27 +4,27 @@ import { useEffect, useState } from "react"
 
 export function useProject(){
 
-    const [loadedprojects, setLoadedProjects] = useState<Project[]>([])
+    const [loadedProjects, setLoadedProjects] = useState<Project[]>([])
     const server = endPoint;
 
     const loadFromApi = () => {
-        fetch(server.baseAPI)
-      .then((response) => response.json())
-      .then((data: Project[]) => {
-        setLoadedProjects(data);
+      fetch(server.baseAPI, {
+        credentials: "include",
       })
-      .catch((error: Error) => {
-        console.error("Error henting data:", error);
-      });
-      }
-
-      useEffect(() => {
-        loadFromApi()
-      },
-    [])
-
-    return loadedprojects
+        .then((response) => response.json())
+        .then((data: Project[]) => {
+          setLoadedProjects(data.data);
+        })
+        .catch((error: Error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
     
-}
+    useEffect(() => {
+      loadFromApi();
+    }, []);
+    
+    return loadedProjects;
+  } 
 
 export default useProject

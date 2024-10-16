@@ -42,6 +42,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     {
         title: projform.projName,
         beskrivelse: projform.projDesc,
+        userId: "1",
         image: projform.projPic,
         teknologibruk: projform.teknologibruk,
         status: "idle",
@@ -49,7 +50,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         publishedAt: null
      }
     
-
+     
   console.log(newProject)
 
   try {

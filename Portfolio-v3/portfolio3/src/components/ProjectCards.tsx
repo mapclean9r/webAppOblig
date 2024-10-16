@@ -3,9 +3,11 @@ import { Project } from "../types";
 
 const ProjectCard = ({projects}:{projects: Project[]}) => {
 
-
   return(
     <section id="outP">
+      {<>
+        {console.log("aaass", projects)}
+      </>}
 
       {projects.map((project, index) => (
   <article key={index} id="cardPortfolio">
