@@ -3,15 +3,18 @@ import { z } from "zod";
 // Definerer et Zod-skjema for Habit
 export const ProjectSchema = z.object({
   id: z.string().uuid(),
-  date: z.coerce.date(),
+  datePublished: z.coerce.date(),
   title: z.string(),
   beskrivelse: z.string(),
   image: z.string(),
   teknologibruk: z.string().array(),
+  status: z.string(),
+  public: z.boolean(),
+  publishedAt: z.coerce.date().nullable(),
 });
 
 // Definerer et Zod-skjema for å opprette en ny Habit
-export const ProjectCreateSchema = ProjectSchema.omit({ id: true, date: true });
+export const ProjectCreateSchema = ProjectSchema.omit({ id: true, datePublished: true });
 
 // Definerer et Zod-skjema for en array av Habit
 export const ProjectArraySchema = z.array(ProjectSchema);
@@ -21,3 +24,8 @@ export type Project = z.infer<typeof ProjectSchema>;
 
 // Oppdatert type-definisjon basert på Zod-skjemaet
 export type CreateProject = z.infer<typeof ProjectCreateSchema>;
+
+export const User = z.object({
+  id: z.string().uuid(),
+  username: z.string()
+})

@@ -67,12 +67,23 @@
         padding: 0.1rem;
         padding-left: 1rem;
         text-align: left;
+        font-size: 0.9rem;
       }
       img{
         display: flex;
         max-width: 200px;
         text-align: center;
         margin: auto;
+      }
+
+      #arrTech{
+        font-size: 0.9rem;
+      }
+      #date {
+        padding: 0.1rem;
+        padding-left: 1rem;
+        text-align: left;
+        font-size: 0.8rem;
       }
     }
   }

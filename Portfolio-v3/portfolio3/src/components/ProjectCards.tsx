@@ -11,9 +11,9 @@ const ProjectCard = ({projects}:{projects: Project[]}) => {
   <article key={index} id="cardPortfolio">
     <h3>{project.title}</h3>
     <img src={project.image} alt="img"/>
-    <p> {format(project.date, "dd/MM,yyyy")}</p>
     <p>{project.beskrivelse}</p>
-    <p>{project.teknologibruk.join(", ")}</p>
+    <p id="arrTech">{project.teknologibruk.join(", ")}</p>
+    <p id="date"> {format(project.datePublished, "dd/MM/yyyy")}</p>
   </article>))}
   
   </section>
