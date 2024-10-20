@@ -16,6 +16,7 @@ const ProjectCard = ({projects}:{projects: Project[]}) => {
     <p>{project.beskrivelse}</p>
     <p id="arrTech">{project.teknologibruk.join(", ")}</p>
     <p id="date"> {format(project.datePublished, "dd/MM/yyyy")}</p>
+    <button id="deleteProj">Delete</button>
   </article>))}
   
   </section>

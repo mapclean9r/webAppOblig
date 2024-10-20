@@ -18,7 +18,7 @@ app.use(
 );
 
 // Sample project data
-const projects: Project[] = [
+let projects: Project[] = [
   {
     id: crypto.randomUUID(),
     datePublished: new Date(),
@@ -63,14 +63,14 @@ app.get("/", async (c) => {
   });
 
   return c.json({
-    data: userProjects,
+    projectData: userProjects,
   });
 });
 
 app.post("/add", async (c) => {
   const proj = await c.req.json<Project>();
 
-  const newProject: Project = {
+  const create = {
     id: crypto.randomUUID(),
     datePublished: new Date(),
     userId: proj.userId,
@@ -83,10 +83,25 @@ app.post("/add", async (c) => {
     publishedAt: proj.publishedAt || null,
   };
 
-  projects.push(newProject);
+  projects.push(create);
 
   return c.json<Project[]>(projects, { status: 201 });
 });
+
+app.delete("/delete", (c) => {
+  const id = c.req.param("id")
+  projects = projects.filter((proj) => proj.id !== id)
+  return c.json(projects)
+})
+
+
+app.patch("/patch", async (c) => {
+  const id = c.req.param("id")
+  const {name} = await c.req.json()
+  projects = projects.map(proj =>
+     proj.id === id ? { ...proj, name }: proj);
+  return c.json(projects)
+})
 
 const port = 3999;
 console.log(`Server is running on port ${port}`);

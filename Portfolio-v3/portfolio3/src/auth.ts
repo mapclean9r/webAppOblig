@@ -15,6 +15,6 @@ export function getUser(request: Request): UserInfo | null {
   const cookies = parseCookie(request.headers.get("Cookie") ?? "");
   
   // Henter ut user.id cookie verdi
-  const id = cookies["user.id"];
+  const id = cookies["Cookie"];
   return users.find((user) => user.id === id) ?? null;
 }

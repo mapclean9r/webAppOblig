@@ -13,7 +13,7 @@ export function useProject(){
       })
         .then((response) => response.json())
         .then((data: Project[]) => {
-          setLoadedProjects(data.data);
+          setLoadedProjects(data.projectData);
         })
         .catch((error: Error) => {
           console.error("Error fetching data:", error);

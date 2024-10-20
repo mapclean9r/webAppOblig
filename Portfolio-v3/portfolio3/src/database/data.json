@@ -1,0 +1,29 @@
+{
+    "projects": [
+      {
+        "id": "949f2a41-98b6-4b06-9308-dcf5f5926201",
+        "datePublished": "2024-10-17T11:17:20.633Z",
+        "userId": "3",
+        "title": "Facebook copy",
+        "beskrivelse": "En kopi av facebook",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMleaymP99uYkw995Q8Vxl16FRedxsXkh-QA&s",
+        "teknologibruk": ["HTML", "CSS", "JavaScript", "TypeScript", "React"],
+        "status": "idle",
+        "public": false,
+        "publishedAt": null
+      },
+      {
+        "id": "94c028a4-83bc-4bb6-a0c6-8ecf2d183972",
+        "datePublished": "2024-10-17T11:17:20.633Z",
+        "userId": "2",
+        "title": "Instagram copy",
+        "beskrivelse": "En kopi av Instagram",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK-ml5Hxr8K5z4-xCTz9T7fUhoUoZtfaKcIw&s",
+        "teknologibruk": ["HTML", "CSS", "JavaScript"],
+        "status": "idle",
+        "public": true,
+        "publishedAt": null
+      }
+    ]
+  }
+  
