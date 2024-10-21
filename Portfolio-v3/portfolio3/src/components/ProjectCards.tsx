@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { Project } from "../types";
 
 const ProjectCard = ({projects}:{projects: Project[]}) => {
@@ -14,7 +15,9 @@ const ProjectCard = ({projects}:{projects: Project[]}) => {
     <img src={project.image} alt="img"/>
     <p>{project.beskrivelse}</p>
     <p id="arrTech">{project.teknologibruk.join(", ")}</p>
-    <p id="date"> {project.datePublished}</p>
+    <p id="date"> {project.publishedAt
+              ? format(new Date(project.publishedAt), "dd/MM/yyyy")
+              : "Date not available"} </p>
     <button>Delete</button>
   </article>))}
   
