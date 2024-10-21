@@ -10,7 +10,7 @@ export const seed = async (db: DB) => {
   const { projects } = JSON.parse(file) as { projects: Project[] };
 
   const insertProject = db.prepare(`
-    INSERT INTO projects (id, title, beskrivelse, date, created_at, image, userId, status, public, publishedAt)
+    INSERT INTO projects (id, title, beskrivelse, date, created_at, image, userId, status, publicc, publishedAt)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
@@ -30,7 +30,7 @@ export const seed = async (db: DB) => {
         project.image,
         project.userId,
         project.status,
-        project.public ? 1 : 0,
+        project.publicc ? 1 : 0,
         project.publishedAt
       );
 

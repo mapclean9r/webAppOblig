@@ -12,7 +12,7 @@ export function useProject(){
         credentials: "include",
       })
         .then((response) => response.json())
-        .then((data: Project[]) => {
+        .then((data) => {
           setLoadedProjects(data.projectData);
         })
         .catch((error: Error) => {

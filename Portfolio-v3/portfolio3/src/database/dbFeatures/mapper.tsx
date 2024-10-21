@@ -1,4 +1,5 @@
 import { Project } from "../../types";
+import db from "../db";
 import { ProjectFromDb, ProjectResponse } from "./dbType";
 import { createID } from "./util";
 
@@ -20,6 +21,21 @@ export const createProjectResponse = (proj: Project): ProjectResponse => {
   };
 };
 
+const getTechnologiesForProject = (projectId: string): string[] => {
+  const query = db.prepare(`
+    SELECT technology FROM technologies WHERE project_id = ?
+  `);
+
+  const rows = query.all(projectId) as { technology: string }[];
+
+  if (!rows) {
+    console.error(`No technologies found: ${projectId}`);
+    return [];
+  }
+
+  return rows.map((row) => row.technology);
+};
+
 // Konverterer en database-representasjon til en applikasjonsmodell
 export const fromDb = (project: ProjectFromDb) => {
   return {
@@ -29,7 +45,7 @@ export const fromDb = (project: ProjectFromDb) => {
     title: project.title,
     beskrivelse: project.beskrivelse,
     image: project.image,
-    teknologibruk: project.teknologibruk,
+    teknologibruk: project.teknologibruk ?? getTechnologiesForProject(project.id),
     status: project.status,
     publicc: project.publicc,
     publishedAt: project.publishedAt ? new Date(project.publishedAt).toISOString() : null,

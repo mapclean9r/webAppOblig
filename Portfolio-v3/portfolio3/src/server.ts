@@ -4,6 +4,7 @@ import { cors } from "hono/cors";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { Project } from "./types";
 import { getUser } from "./auth";
+import { projectController } from "./database/dbFeatures/dbController";
 
 const app = new Hono();
 
@@ -94,6 +95,7 @@ app.delete("/delete", (c) => {
   return c.json(projects)
 })
 
+app.route("/v1/projects", projectController);
 
 app.patch("/patch", async (c) => {
   const id = c.req.param("id")

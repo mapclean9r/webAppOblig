@@ -2,7 +2,7 @@
     "projects": [
       {
         "id": "949f2a41-98b6-4b06-9308-dcf5f5926201",
-        "datePublished": "2024-10-17T11:17:20.633Z",
+        "datePublished": "2024-10-17",
         "userId": "3",
         "title": "Facebook copy",
         "beskrivelse": "En kopi av facebook",
@@ -10,11 +10,11 @@
         "teknologibruk": ["HTML", "CSS", "JavaScript", "TypeScript", "React"],
         "status": "idle",
         "publicc": false,
-        "publishedAt": null
+        "publishedAt": "2024-10-17"
       },
       {
         "id": "94c028a4-83bc-4bb6-a0c6-8ecf2d183972",
-        "datePublished": "2024-10-17T11:17:20.633Z",
+        "datePublished": "2024-10-17",
         "userId": "2",
         "title": "Instagram copy",
         "beskrivelse": "En kopi av Instagram",
@@ -22,7 +22,7 @@
         "teknologibruk": ["HTML", "CSS", "JavaScript"],
         "status": "idle",
         "publicc": true,
-        "publishedAt": null
+        "publishedAt": "2024-10-17"
       }
     ]
   }

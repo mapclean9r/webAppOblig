@@ -11,7 +11,7 @@ export const createTables = (db: DB) => {
           image TEXT,
           userId TEXT NOT NULL,
           status TEXT NOT NULL,
-          public INTEGER NOT NULL,
+          publicc INTEGER NOT NULL,
           publishedAt TEXT
         );
         
