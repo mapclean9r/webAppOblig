@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { Project } from "../types";
 
 const ProjectCard = ({projects}:{projects: Project[]}) => {
@@ -15,12 +14,12 @@ const ProjectCard = ({projects}:{projects: Project[]}) => {
     <img src={project.image} alt="img"/>
     <p>{project.beskrivelse}</p>
     <p id="arrTech">{project.teknologibruk.join(", ")}</p>
-    <p id="date"> {format(project.datePublished, "dd/MM/yyyy")}</p>
-    <button id="deleteProj">Delete</button>
+    <p id="date"> {project.datePublished}</p>
+    <button>Delete</button>
   </article>))}
   
   </section>
 )
 }    
-
+//format(project.datePublished, "dd/MM/yyyy")
 export default ProjectCard

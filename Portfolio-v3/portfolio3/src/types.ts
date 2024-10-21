@@ -3,15 +3,15 @@ import { z } from "zod";
 // Definerer et Zod-skjema for Habit
 export const ProjectSchema = z.object({
   id: z.string().uuid(),
-  datePublished: z.coerce.date(),
+  datePublished: z.string().nullable(),
   userId: z.string(),
   title: z.string(),
   beskrivelse: z.string(),
   image: z.string(),
   teknologibruk: z.string().array(),
   status: z.string(),
-  public: z.boolean(),
-  publishedAt: z.coerce.date().nullable(),
+  publicc: z.boolean(),
+  publishedAt: z.string().nullable(),
 });
 
 export const User = z.object({

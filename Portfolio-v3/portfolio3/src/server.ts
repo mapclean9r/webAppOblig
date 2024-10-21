@@ -21,26 +21,26 @@ app.use(
 let projects: Project[] = [
   {
     id: crypto.randomUUID(),
-    datePublished: new Date(),
+    datePublished: new Date().toISOString(),
     userId: "3",
     title: "Facebook copy",
     beskrivelse: "En kopi av facebook",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMleaymP99uYkw995Q8Vxl16FRedxsXkh-QA&s",
     teknologibruk: ["HTML", "CSS", "JavaScript", "TypeScript", "React"],
     status: "idle",
-    public: false,
+    publicc: false,
     publishedAt: null,
   },
   {
     id: crypto.randomUUID(),
-    datePublished: new Date(),
+    datePublished: new Date().toISOString(),
     userId: "2",
     title: "Instagram copy",
     beskrivelse: "En kopi av Instagram",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK-ml5Hxr8K5z4-xCTz9T7fUhoUoZtfaKcIw&s",
     teknologibruk: ["HTML", "CSS", "JavaScript"],
     status: "idle",
-    public: true,
+    publicc: true,
     publishedAt: null,
   },
 ];
@@ -72,14 +72,14 @@ app.post("/add", async (c) => {
 
   const create = {
     id: crypto.randomUUID(),
-    datePublished: new Date(),
+    datePublished: new Date().toISOString(),
     userId: proj.userId,
     title: proj.title,
     beskrivelse: proj.beskrivelse,
     image: proj.image,
     teknologibruk: proj.teknologibruk,
     status: proj.status,
-    public: proj.public,
+    publicc: proj.publicc,
     publishedAt: proj.publishedAt || null,
   };
 

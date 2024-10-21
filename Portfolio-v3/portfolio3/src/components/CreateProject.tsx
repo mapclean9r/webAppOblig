@@ -46,8 +46,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         image: projform.projPic,
         teknologibruk: projform.teknologibruk,
         status: "idle",
-        public: false,
-        publishedAt: null
+        publicc: false,
+        publishedAt: new Date().toISOString()
      }
     
      
