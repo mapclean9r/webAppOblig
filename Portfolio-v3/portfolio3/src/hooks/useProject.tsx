@@ -8,12 +8,12 @@ export function useProject(){
     const server = endPoint;
 
     const loadFromApi = () => {
-      fetch(server.baseAPI, {
+      fetch(server.dbAPI, {
         credentials: "include",
       })
         .then((response) => response.json())
         .then((data) => {
-          setLoadedProjects(data.projectData);
+          setLoadedProjects(data.data);
         })
         .catch((error: Error) => {
           console.error("Error fetching data:", error);
