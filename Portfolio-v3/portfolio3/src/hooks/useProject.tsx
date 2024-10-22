@@ -43,12 +43,25 @@ export function useProject(){
         console.error('Failed to added project');
       }
     }
+
+    const updateProject = async (id: string) => {
+      const response = await fetch(`${endPoint.dbAPI}/${id}`, {
+        method: 'PATCH',
+      });
+        loadFromApi()
+      if (response.ok) {
+        console.log('Project updated successfully');
+      } else {
+        console.error('Failed to update project');
+      }
+    }
+
     useEffect(() => {
       loadFromApi();
     }, []);
 
     
-    return { loadedProjects, deleteProject, addProject, loadFromApi};
+    return { loadedProjects, deleteProject, addProject, updateProject, loadFromApi};
   } 
 
 export default useProject

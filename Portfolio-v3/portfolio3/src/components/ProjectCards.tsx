@@ -4,7 +4,9 @@ import useProject from "../hooks/useProject";
 
 const ProjectCard = ({projects}:{projects: Project[]}) => {
 
-  const { deleteProject } = useProject()
+  const { deleteProject, updateProject } = useProject()
+
+  //todo edit
 
   return(
     <section id="outP">
@@ -26,6 +28,9 @@ const ProjectCard = ({projects}:{projects: Project[]}) => {
     onClick={() => deleteProject(project.id)}
     >Delete</button>
 
+    <button type="button" id="updButton"  
+    onClick={() => updateProject(project.id)}
+    >Edit</button>
   </article>))}
   
   </section>

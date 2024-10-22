@@ -105,6 +105,11 @@ export const createProjectRepository = (db: DB) => {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         `);
 
+        const insertTech = db.prepare(`
+          INSERT INTO technologies (project_id, technology)
+          VALUES (?, ?)
+        `);
+
       query.run(
         project.id,
         project.title,
@@ -116,6 +121,9 @@ export const createProjectRepository = (db: DB) => {
         project.publicc ? 1 : 0,
         project.publishedAt
       );
+      for (const tech of project.teknologibruk) {
+        insertTech.run(project.id, tech);
+      }
       return {
         success: true,
         data: project.id,
@@ -149,11 +157,6 @@ export const createProjectRepository = (db: DB) => {
         UPDATE projects
         SET title = ?,
         beskrivelse = ?,
-        image = ?, 
-        teknologibruk = ?, 
-        status = ?, 
-        publicc = ?, 
-        publishedAt = ?, 
         WHERE id = ?
       `);
 

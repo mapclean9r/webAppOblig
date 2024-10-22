@@ -42,6 +42,9 @@
     margin: 3rem;
     padding: 1rem;
     border: 1px solid wheat;
+    #submitButton:hover{
+      cursor: pointer;
+    }
   }
   
   #outP {
@@ -90,6 +93,18 @@
         text-align: left;
         font-size: 0.8rem;
         margin: 1rem;
+      }
+      #delButton:hover{
+        cursor: pointer;
+      }
+      #updButton{
+        padding: 0.2rem;
+        text-align: left;
+        font-size: 0.8rem;
+        margin: 0.1rem;
+      }
+      #updButton:hover{
+        cursor: pointer;
       }
     }
   }

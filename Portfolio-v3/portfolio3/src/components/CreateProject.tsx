@@ -110,7 +110,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           <input type="checkbox" id="react" name="sREACT" value="React" checked={projform.teknologibruk.includes('React')} onChange={handleChange}/>
           <label htmlFor="react">React</label><br/><br/>
 
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Submit" id="submitButton"/>
         </form>
 
       </section>
