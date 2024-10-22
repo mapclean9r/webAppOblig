@@ -32,12 +32,23 @@ export function useProject(){
       }
     }
     
+    const addProject = async () => {
+      const response = await fetch(`${endPoint.dbAPI}`, {
+        method: 'POST',
+      });
+        loadFromApi()
+      if (response.ok) {
+        console.log('Project added successfully');
+      } else {
+        console.error('Failed to added project');
+      }
+    }
     useEffect(() => {
       loadFromApi();
     }, []);
 
     
-    return { loadedProjects, deleteProject};
+    return { loadedProjects, deleteProject, addProject, loadFromApi};
   } 
 
 export default useProject

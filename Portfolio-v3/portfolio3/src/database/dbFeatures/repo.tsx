@@ -102,7 +102,7 @@ export const createProjectRepository = (db: DB) => {
       
         const query = db.prepare(`
           INSERT INTO projects (id, title, beskrivelse, datePublished, image, userId, status, publicc, publishedAt)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         `);
 
       query.run(
@@ -121,6 +121,8 @@ export const createProjectRepository = (db: DB) => {
         data: project.id,
       };
     } catch (error) {
+      console.error("Error deleting project:", error);
+
       return {
         success: false,
         error: {
