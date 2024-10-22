@@ -4,6 +4,6 @@ import useProject from "../hooks/useProject";
 export default function ProjectLoader() {
 
     return(
-        <ProjectCard projects={useProject()}/>
+        <ProjectCard projects={useProject().loadedProjects}/>
     )
 }

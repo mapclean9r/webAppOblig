@@ -85,6 +85,12 @@
         text-align: left;
         font-size: 0.8rem;
       }
+      #delButton{
+        padding: 0.2rem;
+        text-align: left;
+        font-size: 0.8rem;
+        margin: 1rem;
+      }
     }
   }
   

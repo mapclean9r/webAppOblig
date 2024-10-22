@@ -172,6 +172,7 @@ export const createProjectRepository = (db: DB) => {
         data: fromDb(proj),
       };
     } catch (error) {
+      console.log(error)
       return {
         success: false,
         error: {
@@ -185,18 +186,27 @@ export const createProjectRepository = (db: DB) => {
   const remove = async (id: string): Promise<Result<string>> => {
     try {
       const proj = await exist(id);
-      if (!proj)
+  
+      if (!proj) {
         return {
           success: false,
           error: { code: "NOT_FOUND", message: "Project not found" },
         };
-      const query = db.prepare("DELETE FROM projects WHERE id = ?");
+      }
+  
+      const deleteRelated = db.prepare("DELETE FROM technologies WHERE project_id = ?");
+      deleteRelated.run(id);
+  
+     const query = db.prepare("DELETE FROM projects WHERE id = ?");
       query.run(id);
+  
       return {
         success: true,
         data: id,
       };
+  
     } catch (error) {
+      console.error("Error deleting project:", error);
       return {
         success: false,
         error: {
@@ -206,6 +216,8 @@ export const createProjectRepository = (db: DB) => {
       };
     }
   };
+  
+  
 
   return { create, list, getById, update, remove };
 };

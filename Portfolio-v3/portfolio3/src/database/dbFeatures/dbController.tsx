@@ -60,7 +60,9 @@ export const createProjectController = (projectService: ProjectService) => {
   });
 
   app.delete("/:id", async (c) => {
+    console.log("used delete")
     const id = c.req.param("id");
+    console.log("DELETE ID FROM BACKEND", id)
     const result = await projectService.remove(id);
     if (!result.success)
       return errorResponse(

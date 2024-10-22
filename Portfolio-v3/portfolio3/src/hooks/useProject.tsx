@@ -18,13 +18,26 @@ export function useProject(){
         .catch((error: Error) => {
           console.error("Error fetching data:", error);
         });
-    };
+    }; 
+
+    const deleteProject = async (id: string) => {
+      const response = await fetch(`${endPoint.dbAPI}/${id}`, {
+        method: 'DELETE',
+      });
+        loadFromApi()
+      if (response.ok) {
+        console.log('Project deleted successfully');
+      } else {
+        console.error('Failed to delete project');
+      }
+    }
     
     useEffect(() => {
       loadFromApi();
     }, []);
+
     
-    return loadedProjects;
+    return { loadedProjects, deleteProject};
   } 
 
 export default useProject

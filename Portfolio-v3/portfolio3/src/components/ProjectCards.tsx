@@ -1,12 +1,15 @@
 import { format } from "date-fns";
 import { Project } from "../types";
+import useProject from "../hooks/useProject";
 
 const ProjectCard = ({projects}:{projects: Project[]}) => {
+
+  const { deleteProject } = useProject()
 
   return(
     <section id="outP">
       {<>
-        {console.log("aaass", projects)}
+        {console.log("aaa", projects)}
       </>}
 
       {projects.map((project, index) => (
@@ -18,11 +21,14 @@ const ProjectCard = ({projects}:{projects: Project[]}) => {
     <p id="date"> {project.publishedAt
               ? format(new Date(project.publishedAt), "dd/MM/yyyy")
               : "Date not available"} </p>
-    <button>Delete</button>
+
+    <button type="button" id="delButton" 
+    onClick={() => deleteProject(project.id)}
+    >Delete</button>
+
   </article>))}
   
   </section>
 )
 }    
-//format(project.datePublished, "dd/MM/yyyy")
 export default ProjectCard
