@@ -54,6 +54,7 @@ export function useProject() {
       if (response.ok) {
         const data = await response.json();
         console.log("proj added:", data);
+        // window.history er kulturarv mente peter
         window.history.go()
         loadFromApi();
       } else {
