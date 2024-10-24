@@ -6,17 +6,18 @@ export function useProject() {
   const [loadedProjects, setLoadedProjects] = useState<Project[]>([]);
   const server = endPoint;
 
-  const loadFromApi = () => {
-    fetch(server.dbAPI, {
-      credentials: "include",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setLoadedProjects(data.data);
-      })
-      .catch((error: Error) => {
-        console.error("Error fetching data:", error);
-      });
+  const loadFromApi = async () => {
+    try {
+      const response = await fetch(server.dbAPI)
+      const data = await response.json()
+    
+      setLoadedProjects(data.data);
+
+    } catch (error) {
+      console.error(error);
+    }
+    
+    
   };
 
   const deleteProject = async (id: string) => {
@@ -40,16 +41,27 @@ export function useProject() {
     }
   };
 
-  const addProject = async () => {
-    const response = await fetch(`${endPoint.dbAPI}`, {
-      method: "POST",
-    });
-    loadFromApi();
-    if (response.ok) {
-      console.log("Project added successfully");
-    } else {
-      console.error("Failed to added project");
-    }
+  const addProject = async (project: any) => {
+    try {
+      const response = await fetch(`${endPoint.dbAPI}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(project),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log("proj added:", data);
+        window.history.go()
+        loadFromApi();
+      } else {
+        console.error("Feil lagring:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Feil med server, prob type error:", error);
+    };
   };
 
   const updateProject = async (id: string) => {

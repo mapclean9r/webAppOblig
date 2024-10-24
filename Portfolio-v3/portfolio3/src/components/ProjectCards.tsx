@@ -4,12 +4,13 @@ import { Project } from "../types";
 const ProjectCard = ({
   projects,
   deleteProject,
-  updateProject,
+  //updateProject,
 }: {
   projects: Project[];
   deleteProject: (id: string) => void;
-  updateProject: (id: string) => void;
+  //updateProject: (id: string) => void;
 }) => {
+
   return (
     <section id="outP">
       {projects.map((project, index) => (
@@ -35,7 +36,6 @@ const ProjectCard = ({
           <button
             type="button"
             id="updButton"
-            onClick={() => updateProject(project.id)}
           >
             Edit
           </button>
@@ -44,5 +44,5 @@ const ProjectCard = ({
     </section>
   );
 };
-
+//updateProject(project.id)
 export default ProjectCard;

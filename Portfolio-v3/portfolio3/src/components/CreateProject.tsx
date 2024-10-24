@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { type CreateProject } from "../types";
-import { endPoint } from "../config";
 import useProject from "../hooks/useProject";
 
 export default function CreateProject() {
 
-  const { loadFromApi } = useProject()
+  const { addProject } = useProject()
 
   const [projform, setProjFormData] = useState({
     projName: "",
@@ -14,7 +13,6 @@ export default function CreateProject() {
     teknologibruk: [] as string[],
   });
 
-  const server = endPoint;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -53,28 +51,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         publishedAt: new Date().toISOString()
      }
     
-     
   console.log(newProject)
-
-  try {
-    const response = await fetch(server.dbAPI, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProject),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      console.log("proj added:", data);
-      loadFromApi();
-    } else {
-      console.error("Feil lagring:", response.statusText);
-    }
-  } catch (error) {
-    console.error("Feil med server, prob type error:", error);
-  };
+  addProject(newProject)
 };
 
 
